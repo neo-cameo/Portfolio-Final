@@ -80,8 +80,12 @@ li {
     color: #6030b1;
 }
 
+section {
+    background-color: rgb(245, 245, 245);
+}
+
 section:nth-child(even) {
-    background-color: #f8f8f8;
+    background-color: white;
 }
 
 .container {
@@ -90,6 +94,10 @@ section:nth-child(even) {
 
 .section__title {
     margin-bottom: 20px;
+}
+
+button {
+    cursor: pointer;
 }
 
 /* NAVIGATION BAR */
@@ -114,6 +122,12 @@ nav {
     font-weight: 700;
 }
 
+.nightmode {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+}
+
 .nav__link--anchor--primary {
     background-color: #6030b1;
     padding: 8px 20px;
@@ -127,10 +141,22 @@ nav {
 }
 
 .personal__logo {
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+}
+
+.email__btn {
+    width: 50px;
+    height: 50px;
     font-size: 24px;
-    color: #6030b1;
-    margin: 0 12px;
-    font-weight: bold;
+    border-radius: 50%;
+    border: none;
+    background-color: black;
+    color: white;
+    position: absolute;
+    bottom: 32px;
+    right: 40px;
 }
 
 /* About Me */
@@ -249,6 +275,106 @@ nav {
         transform: rotate(0);
     }
 }
+
+.scroll {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scroll__icon {
+    width: 20px;
+    height: 30px;
+    border: 2px solid #242424;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll__icon:after {
+    content: "";
+    width: 4px;
+    height: 6px;
+    background-color: #242424;
+    border-radius: 2px;
+    animation: scroll 1000ms infinite alternate;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(3px);
+    }
+
+    100% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Modal */
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1100px;
+    height: 700px;
+    box-shadow: 0 20px 80px 0 rgba(0, 0, 0, 0.55);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+}
+
+.modal__half {
+    width: 50%;
+    padding: 40px 72px;
+}
+
+.modal__about {
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.modal__subtitle,
+.modal__title {
+    text-align: left;
+}
+
+.modal__contact {
+    background-color: #242424;
+}
+
+.modal__title--contact {
+    color: rgb(245, 245, 245);
+}
+
+.modal__subtitle--contact {
+    color: rgb(245, 245, 245);
+}
+
+.language__modal--wrapper {
+    min-width: 48px;
+}
+
+.modal__title--about {
+    font-size: 26px;
+}
+
+.modal__subtitle--about {
+    margin: 12px 0 24px 0;
+}
+
+.modal__para--about {
+    margin-bottom: 24px;
+    line-height: 1.75;
+}
+
 
 /* Tech Stack */
 
