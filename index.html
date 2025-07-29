@@ -22,7 +22,7 @@
     </script>
   </head>
   <body>
-    <section id="about-me">
+    <section id="about-me" onmousemove="moveBackground(event)">
       <nav>
         <div class="personal__logo">
           <img src="assets/Initials.jpg" alt="" class="personal__logo" />
@@ -47,10 +47,11 @@
             <a
               href="mailto:ssjmaceo@gmail.com"
               class="nav__link--anchor nav__link--anchor--primary"
+              onclick="toggleModal()"
               >Contact
             </a>
           </li>
-          <button class="nightmode click">
+          <button class="nightmode click" onclick="toggleContrast()">
             <i class="fa-solid fa-circle-half-stroke"></i>
           </button>
         </ul>
@@ -111,7 +112,9 @@
           </figure>
         </div>
       </div>
-      <button class="email__btn click"><i class="fa-solid fa-envelope"></i></button>
+      <a href="#about-me">
+        <button class="email__btn click" onclick="toggleModal()"><i class="fa-solid fa-envelope"></i></button>
+      </a>
       <a href="#projects" class="scroll">
         <div class="scroll__icon click"></div>
       </a>
@@ -140,7 +143,7 @@
                     class="language__img"
                   />
                 </figure>
-                <span class="language__name">HTML</span>
+                <span class="language__name--modal">HTML</span>
               </div>
               <div class="language">
                 <figure class="language__modal--wrapper">
@@ -150,7 +153,7 @@
                     class="language__img"
                   />
                 </figure>
-                <span class="language__name">CSS</span>
+                <span class="language__name--modal">CSS</span>
               </div>
               <div class="language">
                 <figure class="language__modal--wrapper">
@@ -160,7 +163,7 @@
                     class="language__img"
                   />
                 </figure>
-                <span class="language__name">JavaScript</span>
+                <span class="language__name--modal">JavaScript</span>
               </div>
               <div class="language">
                 <figure class="language__modal--wrapper">
@@ -170,7 +173,7 @@
                     class="language__img"
                   />
                 </figure>
-                <span class="language__name">React</span>
+                <span class="language__name--modal">React</span>
               </div>
             </div>
           </div>
@@ -199,11 +202,20 @@
             <i class="fas fa-spinner"></i>
           </div>
           <div class="modal__overlay modal__overlay--success">Thanks for the message! Looking forward to speaking to you again.</div>
+          <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
         </div>
-        <i class="fas fa-times modal__exit click"></i>
       </div>
+      <img src="assets/semi circle.svg" class="shape shape--0">
+      <img src="assets/circle.svg" class="shape shape--1">
+      <img src="assets/squiggly.svg" class="shape shape--2">
+      <img src="assets/circle.svg" class="shape shape--3">
+      <img src="assets/triangle.svg" class="shape shape--4">
+      <img src="assets/circle.svg" class="shape shape--5">
+      <img src="assets/squiggly.svg" class="shape shape--6">
+      <img src="assets/circle.svg" class="shape shape--7">
+      <img src="assets/semi circle.svg" class="shape shape--8">
     </section>
-    <section id="languages">
+    <section id="languages" onmousemove="moveBackground(event)">
       <div class="container">
         <div class="row">
           <h1 class="section__title">
@@ -405,19 +417,19 @@
             >GitHub</a
           >
           <a
-            href=""
+            href="https://profile.indeed.com/"
             class="footer__social--link link__hover-effect link__hover-effect--white"
             target="_blank"
-            >LinkedIn</a
+            >Indeed</a
           >
           <a
-            href="mailto:ssjmaceo@gmail.com"
+            href="#about-me"
             class="footer__social--link link__hover-effect link__hover-effect--white"
-            target="_blank"
+            onclick="toggleModal()"
             >Contact</a
           >
           <a
-            href=""
+            href="assets/Resume WIP.pdf"
             class="footer__social--link link__hover-effect link__hover-effect--white"
             target="_blank"
             download

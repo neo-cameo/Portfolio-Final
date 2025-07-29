@@ -82,6 +82,7 @@ li {
 
 section {
     background-color: rgb(245, 245, 245);
+    transition: all 300ms ease;
 }
 
 section:nth-child(even) {
@@ -113,6 +114,55 @@ button {
     transform: scale(0.8);
 }
 
+nav,
+.scroll,
+.header,
+.about-me__info {
+    opacity: 1;
+    visibility: visible;
+    transition: all 600ms ease;
+}
+
+.modal__open nav,
+.modal__open .scroll,
+.modal__open .header,
+.modal__open .about-me__info {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 400ms ease;
+}
+
+.dark-mode .title,
+.dark-mode .nav__link--anchor, 
+.dark-mode .about-me__info,
+.dark-mode .about-me__info--title,
+.dark-mode .section__title,
+.dark-mode .nightmode,
+.dark-mode .language__name {
+    color: white;
+}
+
+.dark-mode section {
+    background-color: #242424;
+}
+
+.dark-mode section:nth-child(even) {
+    background-color: #3d3d3d;
+}
+
+.dark-mode .scroll__icon {
+    border-color: white;
+}
+
+.dark-mode .scroll__icon:after,
+.dark-mode .link__hover-effect--black:after {
+    background-color: white;
+}
+
+.dark-mode .email__btn {
+    background-color: white;
+    color: #242424;
+}
 
 /* NAVIGATION BAR */
 
@@ -158,6 +208,7 @@ nav {
     height: 64px;
     width: 64px;
     border-radius: 50%;
+    margin-left: 3px;
 }
 
 .email__btn {
@@ -168,7 +219,7 @@ nav {
     border: none;
     background-color: black;
     color: white;
-    position: absolute;
+    position: fixed;
     bottom: 32px;
     right: 40px;
 }
@@ -336,24 +387,38 @@ nav {
     width: 90%;
     max-width: 1100px;
     height: 700px;
-    box-shadow: 0 20px 80px 0 rgba(0, 0, 0, 0.55);
     border-radius: 20px;
     overflow: hidden;
     display: flex;
+    visibility: hidden;
+    z-index: -1;
+    transition: visibility 1s, z-index 1s, box-shadow 0.5s ease;
+}
+
+.modal__open .modal{
+    z-index: 60;
+    box-shadow: 0 20px 80px 0 rgba(0, 0, 0, 0.55);
+    visibility: visible;
 }
 
 .modal__half {
     width: 50%;
     padding: 40px 72px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 300ms ease-in;
+}
+
+.modal__open .modal__about,
+.modal__open .modal__contact {
+    transform: translateX(0%);
 }
 
 .modal__about {
     background-color: rgb(245, 245, 245);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
+    transform: translateX(-110%);
 }
 
 .modal__subtitle,
@@ -363,9 +428,7 @@ nav {
 
 .modal__contact {
     background-color: #242424;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    transform: translateX(110%);
 }
 
 .modal__title--contact {
@@ -381,6 +444,21 @@ nav {
 .language__modal--wrapper {
     min-width: 48px;
 }
+
+.language__name--modal {
+    position: absolute;
+    bottom: 0;
+    transform: scale(0);
+    transition: all 300ms;
+    font-size: 20px;
+    opacity: 0;
+}
+
+.language:hover .language__name--modal {
+    transform: scale(1);
+    opacity: 1;
+}
+
 
 .modal__title--about {
     font-size: 32px;
@@ -462,7 +540,7 @@ input:focus, textarea:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     z-index: -1;
@@ -484,6 +562,7 @@ input:focus, textarea:focus {
 
 .modal__overlay--visible {
     z-index: 1;
+    display: flex;
 }
 
 .fa-spinner {
@@ -704,6 +783,49 @@ footer {
     opacity: 1;
 }
 
+/* Shapes */
+
+.shape {
+    position: fixed;
+}
+
+.shape--0 {
+    top: 15vh;
+    left:12.5vw;
+}
+.shape--1 {
+    top: 15vh;
+    left: 50vw;
+}
+.shape--2 {
+    top: 15vh;
+    left: 85vw;
+}
+.shape--3 {
+    top: 50vh;
+    left:12.5vw;
+}
+.shape--4 {
+    top: 50vh;
+    left: 50vw;
+}
+.shape--5 {
+    top: 50vh;
+    left: 85vw;
+}
+.shape--6 {
+    top: 80vh;
+    left:12.5vw;
+}
+.shape--7 {
+    top: 80vh;
+    left: 50vw;
+}
+.shape--8 {
+    top: 80vh;
+    left: 85vw;
+}
+
 /* Phones and Tablets */
 
 @media (max-width: 768px) {
@@ -730,6 +852,23 @@ footer {
     .project__description {
         left: 30px;
         padding-right: 30px;
+    }
+
+
+    .modal__half {
+        padding: 12px 12px;
+    }
+
+    .modal__title {
+        font-size: 28px;
+    }
+
+    .modal__subtitle {
+        display: none;
+    }
+
+    .modal__para--about {
+        font-size: 16px;
     }
 }
 
@@ -764,5 +903,9 @@ footer {
     .project__description--title {
         font-size: 32px;
         line-height: 1;
+    }
+
+    .modal__title {
+        font-size: 24px
     }
 }
